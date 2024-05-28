@@ -3,6 +3,8 @@ plugins {
     id("com.android.library")
     // jetbrains
     id("org.jetbrains.kotlin.android")
+    // maven
+    id("maven-publish")
 }
 
 android {
@@ -41,4 +43,24 @@ android {
 
 dependencies {
 
+}
+
+publishing {
+
+    publications {
+
+        register<MavenPublication>("release") {
+
+            groupId    = "ir.farsroidx.m31"
+            artifactId = "andromeda-base"
+            version    = "1.0.0"
+
+            afterEvaluate {
+
+                from(
+                    components["release"]
+                )
+            }
+        }
+    }
 }
