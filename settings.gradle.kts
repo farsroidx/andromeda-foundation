@@ -25,7 +25,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Andromeda-Base"
+rootProject.name = "Andromeda-Foundation"
 
 include(":app")
-include(":library")
+
+include(":m31")

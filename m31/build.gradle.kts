@@ -13,6 +13,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
+        multiDexEnabled           = true
         minSdk                    = 21
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -22,11 +23,14 @@ android {
 
         release {
 
-            isMinifyEnabled = false
+            isMinifyEnabled = true
 
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            )
+
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"), "r8-rules.pro"
             )
         }
     }
@@ -43,6 +47,15 @@ android {
 
 dependencies {
 
+    // Android-X
+    implementation("androidx.core:core-ktx:1.13.1")
+
+    // Koin
+    implementation("io.insert-koin:koin-core:3.5.6")
+
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+
 }
 
 publishing {
@@ -52,7 +65,7 @@ publishing {
         register<MavenPublication>("release") {
 
             groupId    = "ir.farsroidx.m31"
-            artifactId = "andromeda-base"
+            artifactId = "andromeda-foundation"
             version    = "1.0.0"
 
             afterEvaluate {

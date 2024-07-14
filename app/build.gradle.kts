@@ -3,20 +3,19 @@ plugins {
     id("com.android.application")
     // jetbrains
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
 
-    namespace  = "ir.farsroidx.andromeda.base"
+    namespace  = "ir.farsroidx.andromeda"
     compileSdk = 34
 
     defaultConfig {
-        applicationId             = "ir.farsroidx.andromeda.base"
+        applicationId             = "ir.farsroidx.andromeda.foundation"
         minSdk                    = 21
         targetSdk                 = 34
         versionCode               = 1
-        versionName               = "0.0.1"
+        versionName               = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -24,8 +23,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -42,8 +40,7 @@ android {
 
 dependencies {
 
-    // Android-X
     implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("androidx.activity:activity-ktx:1.9.0")
+
+    implementation(project(":m31"))
 }
