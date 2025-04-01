@@ -10,7 +10,7 @@ plugins {
 android {
 
     namespace  = "ir.farsroidx.m31"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         multiDexEnabled           = true
@@ -35,6 +35,10 @@ android {
         }
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -48,13 +52,16 @@ android {
 dependencies {
 
     // Android-X
-    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.core:core-ktx:1.15.0")
 
     // Koin
-    implementation("io.insert-koin:koin-core:3.5.6")
+    implementation("io.insert-koin:koin-core:4.0.3")
 
-    // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+    // Google
+    implementation("com.google.code.gson:gson:2.11.0")
+
+    // Jetbrains
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
 
 }
 
@@ -66,7 +73,7 @@ publishing {
 
             groupId    = "ir.farsroidx.m31"
             artifactId = "andromeda-foundation"
-            version    = "1.0.0"
+            version    = "2.0.0"
 
             afterEvaluate {
 
