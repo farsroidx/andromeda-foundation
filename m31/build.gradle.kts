@@ -36,7 +36,7 @@ android {
     }
 
     buildFeatures {
-        buildConfig = true
+        buildConfig = false
     }
 
     compileOptions {
@@ -73,7 +73,7 @@ publishing {
 
             groupId    = "ir.farsroidx.m31"
             artifactId = "andromeda-foundation"
-            version    = "2.0.0"
+            version    = "2.0.1"
 
             afterEvaluate {
 
